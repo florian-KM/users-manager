@@ -19,16 +19,35 @@ export class SubscribeComponent {
         password: new FormControl('', [Validators.required, Validators.minLength(6)]),
         confirmPassword: new FormControl ('', [Validators.required]),
         gender: new FormControl ('', [Validators.required]),
+        number: new FormControl('', [Validators.required, Validators.minLength(12)]),
     
         body: new FormControl('', Validators.required)
     
       });
     
       
-    
+    form1 = new FormGroup({
+
+      name1: new FormControl('', [Validators.required, Validators.minLength(3)]),
+      Lastname1: new FormControl('', [Validators.required, Validators.minLength(3)]),
+  
+      email1: new FormControl('', [Validators.required, Validators.email]),
+      password1: new FormControl('', [Validators.required, Validators.minLength(6)]),
+      confirmPassword1: new FormControl ('', [Validators.required]),
+      gender1: new FormControl ('', [Validators.required]),
+      number1: new FormControl('', [Validators.required, Validators.minLength(12)]),
+  
+    });
+  
+
       get f(){
     
         return this.form.controls;
+    
+      }
+      get f1(){
+    
+        return this.form1.controls;
     
       }
     
@@ -37,6 +56,12 @@ export class SubscribeComponent {
       submit(){
     
         console.log(this.form.value);
+    
+      }
+
+      submit1(){
+    
+        console.log(this.form1.value);
     
       }
 
