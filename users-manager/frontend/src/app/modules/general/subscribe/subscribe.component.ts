@@ -1,5 +1,7 @@
-import { Component } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup, Validators, } from '@angular/forms';
+import { personnels } from '../../application/models/Personnel.models';
+import { ListPersonnelService} from '../../application/services/PersonnelService/ListPersonnelService';
 
 
 @Component({
@@ -9,19 +11,48 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 })
 
     
-export class SubscribeComponent {
+export class SubscribeComponent implements OnInit{
+  submitted = false;
+  FirstName: string;
+  LastName: string;
+  confirmpassword: String;
+  password: string;
+  email: string;
+  phoneNumber: number;
+  gender:string;
+  dateOfBirth: String;
+  selected: string;
+
+  
+
+  onFormSubmit(){
+    console.log(this.FirstName,
+      this.LastName,
+      this.confirmpassword,
+      this.password,
+      this.email,
+      this.phoneNumber,
+      this.gender,
+      this.dateOfBirth,
+      this.selected);
+  }
+
+  // resetUserForm(userForm: NgForm){
+  //   userForm.resetForm();
+  // }
+
     form = new FormGroup({
 
-        name: new FormControl('', [Validators.required, Validators.minLength(3)]),
-        Lastname: new FormControl('', [Validators.required, Validators.minLength(3)]),
+        FirstName: new FormControl('', [Validators.required, Validators.minLength(3)]),
+        LastName: new FormControl('', [Validators.required, Validators.minLength(3)]),
     
         email: new FormControl('', [Validators.required, Validators.email]),
         password: new FormControl('', [Validators.required, Validators.minLength(6)]),
         confirmPassword: new FormControl ('', [Validators.required]),
         gender: new FormControl ('', [Validators.required]),
-        number: new FormControl('', [Validators.required, Validators.minLength(12)]),
-    
-        body: new FormControl('', Validators.required)
+        number: new FormControl('', [Validators.required, Validators.minLength(9)]),
+        selected: new FormControl('', [Validators.required]),
+        date : new FormControl('', [Validators.required])
     
       });
     
@@ -54,16 +85,59 @@ export class SubscribeComponent {
       
     
       submit(){
-    
         console.log(this.form.value);
-    
       }
+        onSubmit() {
+      this.submitted = true;
+
+      // stop here if form is invalid
+      if (this.form.invalid) {
+          return console.log("erreur ceci ne fonctionne pas");
+      }
+
+      // display form values on success
+      alert('SUCCESS!! :-)\n\n' + JSON.stringify(this.form.value, null, 4));
+    }
+
+      onReset() {
+      this.submitted = false;
+      this.form.reset();
+      }
+
 
       submit1(){
     
         console.log(this.form1.value);
     
       }
+
+      private personnels: personnels[]=
+          [
+            {
+              id: null,
+              FirstName: null,
+              LastName: null,
+              email: '',
+              gender: null,
+              Departement: null,
+              phoneNumber: null,
+              dateOfBirth: null,
+              isconnect: true
+
+            }, 
+          ];
+
+          constructor(private personnelService: ListPersonnelService,
+                      ){
+
+          }
+
+          ngOnInit(){}
+
+          SavePersonnel (NewPersonne: personnels){
+            console.log(NewPersonne);
+          }
+
 
 //   registerForm: FormGroup;
 //    submitted = false;

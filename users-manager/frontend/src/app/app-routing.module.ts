@@ -26,6 +26,11 @@ const routes: Routes = [
     loadChildren: () => import('./modules/general/subscribe/subscribe.module')
       .then(mod => mod.SubscribeModule)
   },
+  {
+    path: 'services',
+    loadChildren: () => import('./modules/application/services/services.module')
+      .then(mod => mod.ServicesModule)
+  },
   { path: '**', component: NotFoundComponent }
 ];
 

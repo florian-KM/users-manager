@@ -1,1 +1,36 @@
-<p>home works!</p>
+<div class="text-center" >
+  <h1 class=" py-2 card-title text-center btn-primary">Mes administrateurs</h1>
+</div>
+<div class="row text-center">
+  <div class="col-lg-3 col-md-6 mb-4" *ngFor=" let admin of Admin">
+    <div class="card h-100">
+      <img class="card-img-top" src="{{admin.photo}}" alt="">
+      <div class="card-body">
+        <h4 class="card-title">{{admin.noms}} {{admin.prenoms}}</h4>
+        <p class="card-text">{{admin.details}}</p>
+      </div>
+      <div class="card-footer">
+        <a href="#" class="btn btn-primary">Details!</a>
+      </div>
+    </div>
+  </div>
+</div>
+<div class=" py-2 card-title text-center btn-primary">
+  <h1>Mes Employes</h1>
+</div>
+<div class="row text-center">
+  <div class="col-lg-3 col-md-6 mb-4" *ngFor=" let personnel of personnels">
+    <div class="card h-100">
+      <img class="card-img-top" src="{{personnel.photo}}" alt="">
+      <div class="card-body">
+        <h4 class="card-title">{{personnel.noms}} {{personnel.prenoms}}</h4>
+        <p class="card-text">{{personnel.details}}</p>
+      </div>
+      <div class="card-footer">
+        <a href="#" class="btn btn-primary">Details!</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+

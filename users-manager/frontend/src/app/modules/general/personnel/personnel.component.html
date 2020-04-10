@@ -1,1 +1,65 @@
-<p>personnel works!</p>
+<div class="container-fluid panel panel-primary" *ngFor="let personnel of personnels">
+    <div class="panel-heading">
+        <h3>{{personnel.FirstName}} {{personnel.LastName}}</h3>
+    </div>
+    <div class="panel-body">
+        <div class="col-md-12">
+            <div class="row vertical-aligne">
+                <div class="col-md-4">
+                    <img [src]="personnel.photopath" class="image" >
+                </div>
+                <div class="col-md-8">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <i><b>Genre</b></i>
+                        </div>
+                        <div class="col-md-6">
+                            :   {{personnel.gender}}
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <i><b>Adresse</b></i>
+                        </div>
+                        <div class="col-md-6">
+                            :   {{personnel.email}}
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <i><b>Date of Birth</b></i>
+                        </div>
+                        <div class="col-md-6">
+                            :   {{personnel.dateOfBirth | date}}
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <i><b>Departement</b></i>
+                        </div>
+                        <div class="col-md-6">
+                            :   {{personnel.Departement}}
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <i><b>Numero tel</b></i>
+                        </div>
+                        <div class="col-md-6">
+                            :   {{personnel.phoneNumber}}
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <i><b>Connecter</b></i>
+                        </div>
+                        <div class="col-md-6">
+                            :   {{personnel.isconnect}}
+                        </div>
+                    </div>
+                     
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

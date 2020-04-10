@@ -16,6 +16,7 @@ import { PersonnelRoutingModule } from './personnel-routing.module';
     PersonnelComponent
   ],
   providers: [
+   
   ],
 })
 export class PersonnelModule { }

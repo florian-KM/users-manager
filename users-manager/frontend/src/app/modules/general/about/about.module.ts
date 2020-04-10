@@ -3,11 +3,14 @@ import { CommonModule } from '@angular/common';
 
 import { AboutComponent } from './about.component';
 import { AboutRoutingModule } from './about-routing.module';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   imports: [
     CommonModule,
-    AboutRoutingModule
+    AboutRoutingModule,
+    FormsModule
+
   ],
   exports: [
     AboutComponent

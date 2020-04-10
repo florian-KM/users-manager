@@ -18,32 +18,32 @@
             <div class="tab-content" id="myTabContent">
                 <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
                     <h3 class="register-heading">Apply as a Employee</h3>
-                    <form [formGroup]="form" (ngSubmit)="submit()">
+                    <form [formGroup]="form" (ngSubmit)="onFormSubmit()">
                         <div class="row register-form">
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <input type="text" class="form-control" placeholder="First Name *" value="" formControlName="name" />
-                                    <div *ngIf="f.name.touched && f.name.invalid" class="alert alert-danger">
-                                        <div *ngIf="f.name.errors.required">Name is required.</div>
-                                        <div *ngIf="f.name.errors.minlength">Name should be 3 character.</div>
+                                    <input type="text" class="form-control" [(ngModel)]="FirstName" name="FirstName" placeholder="First Name *" formControlName="FirstName" />
+                                    <div *ngIf="f.FirstName.touched && f.FirstName.invalid" class="alert alert-danger">
+                                        <div *ngIf="f.FirstName.errors.required">Name is required.</div>
+                                        <div *ngIf="f.FisrtName.errors.minlength">Name should be 3 character.</div>
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <input type="text" class="form-control" placeholder="Last Name *" value="" formControlName="Lastname"/>
-                                    <div *ngIf="f.Lastname.touched && f.Lastname.invalid" class="alert alert-danger">
-                                        <div *ngIf="f.Lastname.errors.required">Last name is required.</div>
-                                        <div *ngIf="f.Lastname.errors.minlength">Last name should be 3 character.</div>
+                                    <input type="text" class="form-control" [(ngModel)]="LastName" name="LastName" placeholder="Last Name *" formControlName="LastName" />
+                                    <div *ngIf="f.LastName.touched && f.LastName.invalid" class="alert alert-danger">
+                                        <div *ngIf="f.LastName.errors.required">Last name is required.</div>
+                                        <div *ngIf="f.LastName.errors.minlength">Last name should be 3 character.</div>
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <input type="password" class="form-control" placeholder="Password *" value="" formControlName="password" />
+                                    <input type="password" class="form-control"  id="" name="password" [(ngModel)]="password" placeholder="Password *" formControlName="password" />
                                     <div *ngIf="f.password.touched && f.password.invalid" class="alert alert-danger">
                                         <div *ngIf="f.password.errors.required">Password is required.</div>
                                         <div *ngIf="f.password.errors.minlength">Password should be 6 character.</div>
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <input type="password" class="form-control"  placeholder="Confirm Password *" value="" formControlName="confirmPassword" />
+                                    <input type="password" class="form-control"  id="" name="confirmpassword" [(ngModel)]="confirmpassword" placeholder="Confirm Password *" formControlName="confirmPassword" />
                                     <div *ngIf="f.confirmPassword.touched && f.confirmPassword.invalid" class="alert alert-danger">
                                         <div *ngIf="f.confirmPassword.errors.required">confirm Password is required.</div>
                                         <div *ngIf="f.confirmPassword.errors.minlength">Password should be 6 character.</div>
@@ -52,11 +52,11 @@
                                 <div class="form-group">
                                     <div class="maxl">
                                         <label class="radio inline"> 
-                                            <input type="radio" name="gender" value="male" formControlName="gender" >
+                                            <input type="radio" [(ngModel)]="gender" name="gender" id="gender" value="male" formControlName="gender" >
                                             <span> Male </span> 
                                         </label>
                                         <label class="radio inline"> 
-                                            <input type="radio" name="gender" value="female" formControlName="gender">
+                                            <input type="radio" [(ngModel)]="gender" name="gender" id="gender" value="female" formControlName="gender">
                                             <span>Female </span> 
                                         </label>
                                     </div>
@@ -64,14 +64,14 @@
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <input type="email" class="form-control" placeholder="Your Email *" value="" formControlName="email"/>
+                                    <input type="email" class="form-control"  id="email" name="email" [(ngModel)]="email" placeholder="Your Email *" formControlName="email"/>
                                     <div *ngIf="f.email.touched && f.email.invalid" class="alert alert-danger">
                                         <div *ngIf="f.email.errors.required">Email is required.</div>
                                         <div *ngIf="f.email.errors.email">Please, enter valid email address.</div>                                    
                                     </div>                                    
                                 </div>
                                 <div class="form-group">
-                                    <input type="text" minlength="10" maxlength="10" name="txtEmpPhone" class="form-control" placeholder="Your Phone *" value="" formControlName="number" />
+                                    <input type="text" minlength="10" maxlength="10"  name="phoneNumber" id="phoneNumber" [(ngModel)]="phoneNumber" class="form-control" placeholder="Your Phone *" formControlName="number" />
                                     <div *ngIf="f.number.touched && f.number.invalid" class="alert alert-danger">
                                         <div *ngIf="f.number.errors.required">Number is required.</div>
                                         <div *ngIf="f.number.errors.minlength">Number should be 9 character.</div>
@@ -79,20 +79,20 @@
 
                                 </div>
                                 <div class="form-group">
-                                    <select class="form-control">
-                                        <option class="hidden"  selected disabled>Please select your Post</option>
-                                        <option>Comptable</option>
-                                        <option>Directeur charge des produition</option>
-                                        <option>Directeur charge des finances</option>
-                                        <option>Directeur charge de la vente</option>
-                                        <option>Directeur charge de services secondaires</option>
+                                    <select class="form-control" name="selected" [(ngModel)]="selected" formControlName="selected">
+                                        <option class="hidden"  selected>Please select your Post</option>
+                                        <option >Comptable</option>
+                                        <option >Directeur charge des produition</option>
+                                        <option >Directeur charge des finances</option>
+                                        <option >Directeur charge de la vente</option>
+                                        <option >Directeur charge de services secondaires</option>
                                         <option></option>
                                     </select>
                                 </div>
                                 <div class="form-group">
-                                    <input type="date" class="form-control" placeholder="Birthday*" value="" />
+                                    <input type="date" class="form-control" placeholder="Date of Birth"  id="dateOfBirth" name="dateOfBirth" [(ngModel)]="dateOfBirth" formControlName="date" />
                                 </div>
-                                <input type="submit" class="btnRegister"  value="Register" [disabled]="!form.valid" routerLink="./home"/>
+                                <input type="submit" class="btn btn-primary"  value="Register" />
                             </div>
                         </div>
                     </form>                           
@@ -103,21 +103,21 @@
                         <div class="row register-form">
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <input type="text" class="form-control" placeholder="First Name *" value="" formControlName="name1"/>
+                                    <input type="text" class="form-control" placeholder="First Name *" name="FirstName" id="FirstName" formControlName="name1"/>
                                     <div *ngIf="f1.name1.touched && f1.name1.invalid" class="alert alert-danger">
                                         <div *ngIf="f1.name1.errors.required">First Name is required.</div>
                                         <div *ngIf="f1.name1.errors.minlength">First Name should be 3 character.</div>
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <input type="text" class="form-control" placeholder="Last Name *" value="" formControlName="Lastname1"/>
+                                    <input type="text" class="form-control" placeholder="Last Name *" name="LastName" id="LastName" formControlName="Lastname1"/>
                                     <div *ngIf="f1.Lastname1.touched && f.Lastname.invalid" class="alert alert-danger">
                                         <div *ngIf="f1.Lastname1.errors.required">Last name is required.</div>
                                         <div *ngIf="f1.Lastname1.errors.minlength">Last name should be 3 character.</div>
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <input type="email" class="form-control" placeholder="Email *" value="" formControlName="email1"/>
+                                    <input type="email" class="form-control" placeholder="Email *" name="email" id="email"  value="" formControlName="email1"/>
                                     <div *ngIf="f1.email1.touched && f.email1.invalid" class="alert alert-danger">
                                         <div *ngIf="f1.email1.errors.required">Email is required.</div>
                                         <div *ngIf="f1.email1.errors.email">Please, enter valid email address.</div>                                    
@@ -126,23 +126,23 @@
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <input type="password" class="form-control" placeholder="Password *" value="" formControlName="password1" />
+                                    <input type="password" class="form-control" placeholder="Password *" name="" id=""  value="" formControlName="password1" />
                                     <div *ngIf="f1.password1.touched && f1.password1.invalid" class="alert alert-danger">
                                         <div *ngIf="f1.password1.errors.required">Password is required.</div>
                                         <div *ngIf="f1.password1.errors.minlength">Password should be 6 character.</div>
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <input type="password" class="form-control" placeholder="Confirm Password *" value="" formControlName="confirmPassword1" />
+                                    <input type="password" class="form-control" placeholder="Confirm Password *" name="" id=""  value="" formControlName="confirmPassword1" />
                                     <div *ngIf="f1.confirmPassword1.touched && f1.confirmPassword1.invalid" class="alert alert-danger">
                                         <div *ngIf="f1.confirmPassword1.errors.required">confirm Password is required.</div>
                                         <div *ngIf="f1.confirmPassword1.errors.minlength">Password should be 6 character.</div>
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <input type="text" maxlength="10" minlength="10" class="form-control" placeholder="Phone *" value="" formControlName="number1" />
+                                    <input type="text" maxlength="10" minlength="10" class="form-control" placeholder="Phone *" name="phoneNumber" id="phoneNumber"  value="" formControlName="number1" />
                                     <div *ngIf="f1.number1.touched && f1.number1.invalid" class="alert alert-danger">
-                                        <div *ngIf="f1.number.errors.required">Number is required.</div>
+                                        <div *ngIf="f1.number1.errors.required">Number is required.</div>
                                         <div *ngIf="f1.number1.errors.minlength">Number should be 9 character.</div>
                                     </div>
                                 </div>

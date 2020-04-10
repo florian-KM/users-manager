@@ -1,6 +1,6 @@
 
 import { NgModule } from '@angular/core';
-import {FormsModule, ReactiveFormsModule } from '@angular/forms';
+import {ReactiveFormsModule } from '@angular/forms';
 import { SubscribeComponent } from './subscribe.component';
 
 import { SubscribeRoutingModule } from './subscribe-routing.module';
@@ -11,9 +11,7 @@ import { CommonModule } from '@angular/common';
   imports: [
     ReactiveFormsModule,
     SubscribeRoutingModule,
-    CommonModule,
-
-    FormsModule
+    CommonModule
 
   ],
   exports: [

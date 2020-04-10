@@ -1,1 +1,11 @@
-<p>about works!</p>
+<p>je suis suis</p>
+<form #aboutForm="ngForm" (ngSubmit)="onFormSubmit()">
+    <div class="formGroup">
+        <input type="text" class="form-control" [(ngModel)]="FirstName"  id="FirstName" name="FirstName" placeholder="First Name *"/>
+        <input type="text" class="form-control" [(ngModel)]="LastName"  name="LastName" placeholder="First Name *"/>
+
+        <button type="submit" class="btn btn-primary">Enregistre</button>
+    <button class="btn btn-primary" (click)="resetAboutForm(aboutForm)">Reset</button>
+
+    </div>
+    </form>
